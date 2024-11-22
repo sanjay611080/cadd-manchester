@@ -1,6 +1,4 @@
 "use client"; // This marks the file as a client component
-import { useState, useEffect } from "react";
-import Link from "next/link";
 import localFont from "next/font/local";
 import Navbar from "./components/navbar/Navbar";  // Import Navbar
 import "./globals.css"; // Ensure global styles are applied

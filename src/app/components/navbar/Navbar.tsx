@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image"; // Import Next.js Image component
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -39,10 +40,12 @@ const Navbar = () => {
         {/* Logo Section */}
         <div className="flex justify-start md:justify-center w-full">
           <Link href="/">
-            <img
-              src="/logo.svg"
+            <Image
+              src="/logo.svg" // Adjust the path to your logo file
               alt="Cadd Manchester Logo"
-              className={`logo ${isScrolled ? "hidden" : ""} transition-all duration-300 w-32 md:w-[247px]`} // Adjust size here
+              width={247} // Set width for the logo
+              height={103} // Set height for the logo
+              className={`logo ${isScrolled ? "hidden" : ""} transition-all duration-300 w-32 md:w-[247px]`}
             />
           </Link>
         </div>
@@ -111,35 +114,50 @@ const Navbar = () => {
           <ul>
             <li>
               <Link href="/">
-                <span className="font-inter text-[18px] font-medium leading-[21.78px]  underline decoration-transparent decoration-slice text-black block py-2 px-4" onClick={closeMobileMenu}>
+                <span
+                  className="font-inter text-[18px] font-medium leading-[21.78px]  underline decoration-transparent decoration-slice text-black block py-2 px-4"
+                  onClick={closeMobileMenu}
+                >
                   Home
                 </span>
               </Link>
             </li>
             <li>
               <Link href="/pages/Course">
-                <span className="font-inter text-[18px] font-medium leading-[21.78px]  underline decoration-transparent decoration-slice text-black block py-2 px-4" onClick={closeMobileMenu}>
+                <span
+                  className="font-inter text-[18px] font-medium leading-[21.78px]  underline decoration-transparent decoration-slice text-black block py-2 px-4"
+                  onClick={closeMobileMenu}
+                >
                   Courses
                 </span>
               </Link>
             </li>
             <li>
               <Link href="/pages/Exam">
-                <span className="font-inter text-[18px] font-medium leading-[21.78px]  underline decoration-transparent decoration-slice text-black block py-2 px-4" onClick={closeMobileMenu}>
+                <span
+                  className="font-inter text-[18px] font-medium leading-[21.78px]  underline decoration-transparent decoration-slice text-black block py-2 px-4"
+                  onClick={closeMobileMenu}
+                >
                   Exam
                 </span>
               </Link>
             </li>
             <li>
               <Link href="/pages/Blog">
-                <span className="font-inter text-[18px] font-medium leading-[21.78px]  underline decoration-transparent decoration-slice text-black block py-2 px-4" onClick={closeMobileMenu}>
+                <span
+                  className="font-inter text-[18px] font-medium leading-[21.78px]  underline decoration-transparent decoration-slice text-black block py-2 px-4"
+                  onClick={closeMobileMenu}
+                >
                   Blog
                 </span>
               </Link>
             </li>
             <li>
               <Link href="/pages/About">
-                <span className="font-inter text-[18px] font-medium leading-[21.78px]  underline decoration-transparent decoration-slice text-black block py-2 px-4" onClick={closeMobileMenu}>
+                <span
+                  className="font-inter text-[18px] font-medium leading-[21.78px]  underline decoration-transparent decoration-slice text-black block py-2 px-4"
+                  onClick={closeMobileMenu}
+                >
                   About Us
                 </span>
               </Link>
