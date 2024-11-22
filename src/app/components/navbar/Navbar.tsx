@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link'; // Import Link from next/link
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -101,41 +102,21 @@ const Navbar = () => {
 
           {/* Navigation Links (Desktop only) */}
           <div className={`hidden ${scrolled ? 'text-black' : 'text-white mt-[27px]'} lg:flex space-x-8 sm:space-y-0 sm:flex-row sm:space-x-8`}>
-            <a
-              href="/"
-              className="hover:text-gray-400 w-[51px] h-[22px]"
-              onClick={closeMobileMenu}
-            >
+            <Link href="/" className="hover:text-gray-400 w-[51px] h-[22px]" onClick={closeMobileMenu}>
               Home
-            </a>
-            <a
-              href="/course"
-              className="hover:text-gray-400"
-              onClick={closeMobileMenu}
-            >
+            </Link>
+            <Link href="/course" className="hover:text-gray-400" onClick={closeMobileMenu}>
               Courses
-            </a>
-            <a
-              href="/exam"
-              className="hover:text-gray-400"
-              onClick={closeMobileMenu}
-            >
+            </Link>
+            <Link href="/exam" className="hover:text-gray-400" onClick={closeMobileMenu}>
               Exam
-            </a>
-            <a
-              href="/blog"
-              className="hover:text-gray-400"
-              onClick={closeMobileMenu}
-            >
+            </Link>
+            <Link href="/blog" className="hover:text-gray-400" onClick={closeMobileMenu}>
               Blog
-            </a>
-            <a
-              href="/about-us"
-              className="hover:text-gray-400"
-              onClick={closeMobileMenu}
-            >
+            </Link>
+            <Link href="/about-us" className="hover:text-gray-400" onClick={closeMobileMenu}>
               About Us
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -145,49 +126,29 @@ const Navbar = () => {
         <div className="lg:hidden absolute top-16 left-0 w-full bg-white text-black p-4 shadow-lg">
           <ul>
             <li>
-              <a
-                href="/"
-                className="block py-2 px-4 hover:text-gray-400"
-                onClick={closeMobileMenu}
-              >
+              <Link href="/" className="block py-2 px-4 hover:text-gray-400" onClick={closeMobileMenu}>
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/course"
-                className="block py-2 px-4 hover:text-gray-400"
-                onClick={closeMobileMenu}
-              >
+              <Link href="/course" className="block py-2 px-4 hover:text-gray-400" onClick={closeMobileMenu}>
                 Course
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/exam"
-                className="block py-2 px-4 hover:text-gray-400"
-                onClick={closeMobileMenu}
-              >
+              <Link href="/exam" className="block py-2 px-4 hover:text-gray-400" onClick={closeMobileMenu}>
                 Exam
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/blog"
-                className="block py-2 px-4 hover:text-gray-400"
-                onClick={closeMobileMenu}
-              >
+              <Link href="/blog" className="block py-2 px-4 hover:text-gray-400" onClick={closeMobileMenu}>
                 Blog
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/about-us"
-                className="block py-2 px-4 hover:text-gray-400"
-                onClick={closeMobileMenu}
-              >
+              <Link href="/about-us" className="block py-2 px-4 hover:text-gray-400" onClick={closeMobileMenu}>
                 About Us
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
