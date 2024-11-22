@@ -102,19 +102,19 @@ const Navbar = () => {
 
           {/* Navigation Links (Desktop only) */}
           <div className={`hidden ${scrolled ? 'text-black' : 'text-white mt-[27px]'} lg:flex space-x-8 sm:space-y-0 sm:flex-row sm:space-x-8`}>
-            <Link href="/" className="hover:text-gray-400 w-[51px] h-[22px]" onClick={closeMobileMenu}>
+            <Link href="/" className="   hover:scale-105" onClick={closeMobileMenu}>
               Home
             </Link>
-            <Link href="/course" className="hover:text-gray-400" onClick={closeMobileMenu}>
+            <Link href="/course" className="  hover:scale-105" onClick={closeMobileMenu}>
               Courses
             </Link>
-            <Link href="/exam" className="hover:text-gray-400" onClick={closeMobileMenu}>
+            <Link href="/exam" className="  hover:scale-105" onClick={closeMobileMenu}>
               Exam
             </Link>
-            <Link href="/blog" className="hover:text-gray-400" onClick={closeMobileMenu}>
+            <Link href="/blog" className="  hover:scale-105" onClick={closeMobileMenu}>
               Blog
             </Link>
-            <Link href="/about-us" className="hover:text-gray-400" onClick={closeMobileMenu}>
+            <Link href="/about-us" className="  hover:scale-105" onClick={closeMobileMenu}>
               About Us
             </Link>
           </div>
@@ -126,27 +126,27 @@ const Navbar = () => {
         <div className="lg:hidden absolute top-16 left-0 w-full bg-white text-black p-4 shadow-lg">
           <ul>
             <li>
-              <Link href="/" className="block py-2 px-4 hover:text-gray-400" onClick={closeMobileMenu}>
+              <Link href="/" className="block py-2 px-4 " onClick={closeMobileMenu}>
                 Home
               </Link>
             </li>
             <li>
-              <Link href="/course" className="block py-2 px-4 hover:text-gray-400" onClick={closeMobileMenu}>
+              <Link href="/course" className="block py-2 px-4 " onClick={closeMobileMenu}>
                 Course
               </Link>
             </li>
             <li>
-              <Link href="/exam" className="block py-2 px-4 hover:text-gray-400" onClick={closeMobileMenu}>
+              <Link href="/exam" className="block py-2 px-4 " onClick={closeMobileMenu}>
                 Exam
               </Link>
             </li>
             <li>
-              <Link href="/blog" className="block py-2 px-4 hover:text-gray-400" onClick={closeMobileMenu}>
+              <Link href="/blog" className="block py-2 px-4 " onClick={closeMobileMenu}>
                 Blog
               </Link>
             </li>
             <li>
-              <Link href="/about-us" className="block py-2 px-4 hover:text-gray-400" onClick={closeMobileMenu}>
+              <Link href="/about-us" className="block py-2 px-4 " onClick={closeMobileMenu}>
                 About Us
               </Link>
             </li>
