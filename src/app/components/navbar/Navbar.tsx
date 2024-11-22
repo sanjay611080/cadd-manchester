@@ -1,174 +1,193 @@
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image"; // Import Next.js Image component
+import React, { useState, useEffect } from 'react';
 
 const Navbar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // Mobile menu state
+  const [isDesktop, setIsDesktop] = useState(false); // To detect if the device is desktop
 
+  // Handle screen resize to update device type (desktop vs mobile)
   useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 1024); // Change this based on your breakpoints
+    };
+
+    handleResize(); // Check initial screen size
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  // Handle scroll events to change navbar style only on desktop
+  useEffect(() => {
+    if (!isDesktop) return; // Disable scroll functionality on mobile
+
     const handleScroll = () => {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      if (scrollTop > 50 && !isScrolled) {
-        setIsScrolled(true);
-      } else if (scrollTop <= 50 && isScrolled) {
-        setIsScrolled(false);
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [isScrolled]);
+    window.addEventListener('scroll', handleScroll);
 
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isDesktop]); // Re-run this effect when the device type changes
+
+  // Toggle the mobile menu
   const toggleMobileMenu = () => {
-    setIsMobileMenuOpen((prevState) => !prevState);
+    setIsOpen(!isOpen);
   };
 
+  // Close the mobile menu when a link is clicked
   const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
+    setIsOpen(false);
   };
 
   return (
-    <nav className="bg-white text-black p-4 fixed top-0 left-0 w-full z-50 md:h-[150px] h-[60px]">
-      <div className="flex justify-between items-center">
-        {/* Logo Section */}
-        <div className="flex justify-start md:justify-center w-full mx-[10px]">
-          {/* Logo for Desktop (hidden on mobile) */}
-          <Link href="/">
-            <Image
-              src="/logo.svg"
-              alt="Cadd Manchester Logo"
-              width={247} // Set width for the logo
-              height={103} // Set height for the logo
-              className={`logo ${isScrolled ? "hidden" : ""} transition-all duration-300 w-32 md:w-[247px] hidden md:block`} // Hidden on mobile
+    <nav
+      className={`text-black py-4 fixed w-full top-0 left-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white' : ''} ${!isDesktop ? 'bg-white' : ''}`}
+    >
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Logo and Navigation */}
+        <div className={`flex items-center justify-between transition-all duration-300 flex-row ${scrolled ? 'lg:flex-row' : 'lg:flex-col'} ${!isDesktop ? 'flex-row justify-between' : ''}`}>
+          
+          {/* Logo Section (Visible on Desktop and on the left on Mobile) */}
+          <div className={`transition-all duration-300 ${scrolled ? 'ml-0' : 'mx-auto'} ${!isDesktop ? 'ml-0' : 'lg:block'} ${isDesktop ? '' : 'flex-1'}`}>
+            <img
+              // Change logo based on screen size (desktop or mobile) and scroll position
+              src={isDesktop ? (scrolled ? "/logo-mobile.svg" : "/logo.svg") : "/logo-mobile.svg"} 
+              alt="Logo"
+              className={`h-10 transition-all duration-300 ${scrolled ? 'mr-4' : 'lg:w-[247px] lg:h-[103px]'}`} 
             />
-          </Link>
+          </div>
 
-          {/* Logo for Mobile (hidden on desktop) */}
-          <Link href="/">
-            <Image
-              src="/logo-mobile.svg" // Mobile-specific logo
-              alt="Cadd Manchester Mobile Logo"
-              width={150} // Adjust the width for mobile
-              height={60} // Adjust the height for mobile
-              className="md:hidden transition-all duration-300 w-30" // Only show this on mobile
-            />
-          </Link>
+          {/* Hamburger Menu Button for Mobile (Visible on Mobile, on the Right) */}
+          <div className="lg:hidden flex items-center ml-auto">
+            <button
+              className="text-black focus:outline-none"
+              onClick={toggleMobileMenu} // Toggle mobile menu visibility
+              aria-label="Toggle navigation"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                {isOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
+
+          {/* Navigation Links (Desktop only) */}
+          <div className={`hidden ${scrolled ? 'text-black' : 'text-white mt-[27px]'} lg:flex space-x-8 sm:space-y-0 sm:flex-row sm:space-x-8`}>
+            <a
+              href="/"
+              className="hover:text-gray-400 w-[51px] h-[22px]"
+              onClick={closeMobileMenu}
+            >
+              Home
+            </a>
+            <a
+              href="/course"
+              className="hover:text-gray-400"
+              onClick={closeMobileMenu}
+            >
+              Courses
+            </a>
+            <a
+              href="/exam"
+              className="hover:text-gray-400"
+              onClick={closeMobileMenu}
+            >
+              Exam
+            </a>
+            <a
+              href="/blog"
+              className="hover:text-gray-400"
+              onClick={closeMobileMenu}
+            >
+              Blog
+            </a>
+            <a
+              href="/about-us"
+              className="hover:text-gray-400"
+              onClick={closeMobileMenu}
+            >
+              About Us
+            </a>
+          </div>
         </div>
-
-        {/* Hamburger Menu Button */}
-        <button
-          className="block md:hidden"
-          onClick={toggleMobileMenu}
-          aria-label="Toggle navigation"
-        >
-          <span className="block w-6 h-1 bg-black mb-1 mx-[10px]"></span>
-          <span className="block w-6 h-1 bg-black mb-1 mx-[10px]"></span>
-          <span className="block w-6 h-1 bg-black mb-1 mx-[10px]"></span>
-        </button>
       </div>
 
-      {/* Navigation Links (For Desktop) */}
-      <ul className="hidden md:flex justify-center space-x-8 mt-[54px] text-white">
-        <li>
-          <Link href="/">
-            <span className="font-inter text-[18px] font-medium leading-[21.78px] text-center underline decoration-transparent decoration-slice py-2 px-4 rounded-md transform transition-transform duration-300 hover:scale-200 ">
-              Home
-            </span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/pages/Course">
-            <span className="font-inter text-[18px] font-medium leading-[21.78px] text-center underline decoration-transparent py-2 px-4 rounded-md transform transition-transform duration-300 hover:scale-110 ">
-              Course
-            </span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/pages/Exam">
-            <span className="font-inter text-[18px] font-medium leading-[21.78px] text-center underline decoration-transparent decoration-slice py-2 px-4 rounded-md transform transition-transform duration-300 hover:scale-110 ">
-              Exam
-            </span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/pages/Blog">
-            <span className="font-inter text-[18px] font-medium leading-[21.78px] text-center underline decoration-transparent decoration-slice py-2 px-4 rounded-md transform transition-transform duration-300 hover:scale-110 ">
-              Blog
-            </span>
-          </Link>
-        </li>
-        <li>
-          <Link href="/pages/About">
-            <span className="font-inter text-[18px] font-medium leading-[21.78px] text-center underline decoration-transparent decoration-slice py-2 px-4 rounded-md transform transition-transform duration-300 hover:scale-110 ">
-              About Us
-            </span>
-          </Link>
-        </li>
-      </ul>
-
-      {/* Mobile Dropdown Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-white text-black p-4 shadow-lg">
-          <button
-            className="block w-full text-right mb-4 text-xl"
-            onClick={toggleMobileMenu}
-            aria-label="Close menu"
-          >
-            ×
-          </button>
+      {/* Mobile Dropdown Menu (when the hamburger is clicked) */}
+      {isOpen && (
+        <div className="lg:hidden absolute top-16 left-0 w-full bg-white text-black p-4 shadow-lg">
           <ul>
             <li>
-              <Link href="/">
-                <span
-                  className="font-inter text-[18px] font-medium leading-[21.78px] underline decoration-transparent decoration-slice text-black block py-2 px-4"
-                  onClick={closeMobileMenu}
-                >
-                  Home
-                </span>
-              </Link>
+              <a
+                href="/"
+                className="block py-2 px-4 hover:text-gray-400"
+                onClick={closeMobileMenu}
+              >
+                Home
+              </a>
             </li>
             <li>
-              <Link href="/pages/Course">
-                <span
-                  className="font-inter text-[18px] font-medium leading-[21.78px] underline decoration-transparent decoration-slice text-black block py-2 px-4"
-                  onClick={closeMobileMenu}
-                >
-                  Courses
-                </span>
-              </Link>
+              <a
+                href="/course"
+                className="block py-2 px-4 hover:text-gray-400"
+                onClick={closeMobileMenu}
+              >
+                Course
+              </a>
             </li>
             <li>
-              <Link href="/pages/Exam">
-                <span
-                  className="font-inter text-[18px] font-medium leading-[21.78px] underline decoration-transparent decoration-slice text-black block py-2 px-4"
-                  onClick={closeMobileMenu}
-                >
-                  Exam
-                </span>
-              </Link>
+              <a
+                href="/exam"
+                className="block py-2 px-4 hover:text-gray-400"
+                onClick={closeMobileMenu}
+              >
+                Exam
+              </a>
             </li>
             <li>
-              <Link href="/pages/Blog">
-                <span
-                  className="font-inter text-[18px] font-medium leading-[21.78px] underline decoration-transparent decoration-slice text-black block py-2 px-4"
-                  onClick={closeMobileMenu}
-                >
-                  Blog
-                </span>
-              </Link>
+              <a
+                href="/blog"
+                className="block py-2 px-4 hover:text-gray-400"
+                onClick={closeMobileMenu}
+              >
+                Blog
+              </a>
             </li>
             <li>
-              <Link href="/pages/About">
-                <span
-                  className="font-inter text-[18px] font-medium leading-[21.78px] underline decoration-transparent decoration-slice text-black block py-2 px-4"
-                  onClick={closeMobileMenu}
-                >
-                  About Us
-                </span>
-              </Link>
+              <a
+                href="/about-us"
+                className="block py-2 px-4 hover:text-gray-400"
+                onClick={closeMobileMenu}
+              >
+                About Us
+              </a>
             </li>
           </ul>
         </div>
