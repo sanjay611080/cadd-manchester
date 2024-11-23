@@ -2,6 +2,7 @@
 import localFont from "next/font/local";
 import Navbar from "./components/navbar/Navbar";  // Import Navbar
 import "./globals.css"; // Ensure global styles are applied
+import Footer from "./components/footer/Footer";
 
 // Load custom fonts using `next/font/local`
 const geistSans = localFont({
@@ -42,6 +43,7 @@ export default function RootLayout({
         <main className="flex-grow">{children}</main> 
 
         {/* Footer will always be at the bottom of the page */}
+        <Footer/>
       </body>
     </html>
   );

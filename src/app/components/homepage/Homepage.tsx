@@ -1,6 +1,6 @@
 import React from "react";
 import Cards from "../common/cards/Cards";
-import Link from "next/link";
+import CourseCards from "../common/course_cards/CourseCards";
 
 const HomePage = () => {
   return (
@@ -42,17 +42,18 @@ const HomePage = () => {
           <p className="text-lg md:text-xl text-gray-600 mb-12">
             Bridge the gap between where you are and where you want to be with our expert guidance
           </p>
-        <Cards/>
-        <div className="flex-1 flex flex-col justify-center p-8">
-          {/* Uncomment the link when needed */}
-            <Link href="#">
-              <button className="inline-block mt-6 px-6 py-3  text-white bg-[rgba(0,15,102,1)] hover:bg-blue-600 hover:text-black rounded-[4px] transition duration-300">
-                Explore more courses
-              </button>
-             
-            </Link>
-          </div>
+          <Cards />
         </div>
+      </div>
+      <div className="py-16 text-center px-4 bg-[rgba(246,246,246,0.8)]">
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          Prepare for exams with guidance from expert instructors
+        </h1>
+        <p className="text-lg md:text-xl text-gray-600 mb-12 max-w-3xl mx-auto">
+          Get expert coaching, valuable exam tips, and personalized strategies to boost your confidence and
+          ensure you’re fully prepared for the exam.
+        </p>
+        <CourseCards />
       </div>
     </>
   );
