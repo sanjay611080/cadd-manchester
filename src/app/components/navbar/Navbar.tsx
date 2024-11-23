@@ -105,16 +105,16 @@ const Navbar = () => {
             <Link href="/" className="   hover:scale-105" onClick={closeMobileMenu}>
               Home
             </Link>
-            <Link href="/course" className="  hover:scale-105" onClick={closeMobileMenu}>
+            <Link href="/Courses" className="  hover:scale-105" onClick={closeMobileMenu}>
               Courses
             </Link>
-            <Link href="/exam" className="  hover:scale-105" onClick={closeMobileMenu}>
+            <Link href="/Exams" className="  hover:scale-105" onClick={closeMobileMenu}>
               Exam
             </Link>
-            <Link href="/blog" className="  hover:scale-105" onClick={closeMobileMenu}>
+            <Link href="/Blog" className="  hover:scale-105" onClick={closeMobileMenu}>
               Blog
             </Link>
-            <Link href="/about-us" className="  hover:scale-105" onClick={closeMobileMenu}>
+            <Link href="/About" className="  hover:scale-105" onClick={closeMobileMenu}>
               About Us
             </Link>
           </div>
