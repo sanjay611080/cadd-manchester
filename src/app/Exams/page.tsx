@@ -9,7 +9,7 @@ const Page = () => {
         
         {/* Message */}
         <p className="text-lg text-gray-700 mb-6">
-          We're working hard to bring you an amazing experience. This page will be ready very soon!
+          We&apos;re working hard to bring you an amazing experience. This page will be ready very soon!
         </p>
 
         {/* Progress bar */}
