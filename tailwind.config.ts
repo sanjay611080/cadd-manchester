@@ -8,6 +8,15 @@ export default {
   ],
   theme: {
     extend: {
+      animation: {
+        'rotate-360': 'rotate 360deg',
+      },
+      transform: {
+        'style-preserve-3d': 'preserve-3d',
+      },
+      perspective: {
+        1000: '1000px',
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
