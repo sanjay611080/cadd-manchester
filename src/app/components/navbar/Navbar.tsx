@@ -25,10 +25,15 @@ const Navbar = () => {
     if (!isDesktop) return; // Disable scroll functionality on mobile
 
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      const scrollY = window.scrollY;
+      if (scrollY > 50) {
         setScrolled(true);
+        // Save the scroll position to localStorage (convert to string)
+        localStorage.setItem('scrollPosition', scrollY.toString());
       } else {
         setScrolled(false);
+        // Save the scroll position to localStorage (convert to string)
+        localStorage.setItem('scrollPosition', '0');
       }
     };
 
@@ -38,6 +43,17 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [isDesktop]); // Re-run this effect when the device type changes
+
+  // Check if the scroll position is saved when the component mounts
+  useEffect(() => {
+    const savedScrollPosition = localStorage.getItem('scrollPosition');
+    // Convert to number and handle null case
+    const scrollPosition = savedScrollPosition ? parseInt(savedScrollPosition, 10) : 0;
+    if (scrollPosition && scrollPosition > 50) {
+      setScrolled(true);
+      window.scrollTo(0, scrollPosition); // Scroll to the saved position
+    }
+  }, []);
 
   // Toggle the mobile menu
   const toggleMobileMenu = () => {
