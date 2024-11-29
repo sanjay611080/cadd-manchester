@@ -35,7 +35,7 @@ const HomePage = () => {
             background: 'linear-gradient(109.7deg, rgba(121, 176, 223, 0.18) -0.75%, rgba(91, 18, 133, 0.08) 123.88%)',
           }}
         >
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 mt-20">
             Elevate your journey with our expertly designed courses
           </h1>
           <p className="text-lg md:text-xl text-gray-600 mb-12">
@@ -83,10 +83,11 @@ const HomePage = () => {
             </div>
           </div>
         </div>
+      {/* Students Carousel Section */}
       </div>
 
-      {/* Students Carousel Section */}
-      <div className="">
+      {/* Students Carousel with Negative Margin to Shift it */}
+      <div className="relative z-10 -mt-[200px]">
         <StudentsCarousel />
       </div>
     </>

@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "John Doe",
-    "review": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. ",
+    "review": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore . ",
     "avatar": "/home/user-profile.png"
   },
   {
@@ -24,25 +24,7 @@
     "avatar": "/home/user-profile.png"
   },
   {
-    "id": 6,
-    "name": "Michael Brown",
-    "review": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. ",
-    "avatar": "/home/user-profile.png"
-  },
-  {
-    "id": 7,
-    "name": "Mark Wilson",
-    "review": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. ",
-    "avatar": "/home/user-profile.png"
-  },
-  {
-    "id": 8,
-    "name": "Emily Davis",
-    "review": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. ",
-    "avatar": "/home/user-profile.png"
-  },
-  {
-    "id": 9,
+    "id": 5,
     "name": "Michael Brown",
     "review": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore. ",
     "avatar": "/home/user-profile.png"
