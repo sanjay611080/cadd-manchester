@@ -45,7 +45,7 @@ const StudentsCarousel = () => {
   const backgroundImagePath = "/home/Testimonial_card.png"; // Relative path to the background image
 
   return (
-    <div className="relative w-full mx-auto overflow-hidden pt-10 pb-10">
+    <div className="relative w-full mx-auto overflow-hidden pt-10 pb-28">
       <div
         className="flex transition-transform duration-500 ease-in-out"
         style={{
