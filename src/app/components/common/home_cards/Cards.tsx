@@ -20,7 +20,7 @@ const Cards: React.FC = () => {
 
   return (
     <>
-      <div className="cards-container flex flex-col items-center w-full max-w-[1241px]  mx-auto">
+      <div className="cards-container flex flex-col items-center w-full max-w-[1241px] px-8  mx-auto">
         <div className="cards-grid flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-[15px] w-full">
           {cards.map((card, index) => (
             <div
@@ -69,9 +69,9 @@ const Cards: React.FC = () => {
           ))}
         </div>
       </div>
-      <div className="explore-more-button-container flex justify-center w-full p-8 mt-6">
+      <div className="explore-more-button-container flex justify-center w-full p-8 mt-10">
         <button
-          className="explore-more-button inline-block px-6 py-3 text-white bg-[rgba(0,15,102,1)] hover:bg-blue-600 hover:text-black rounded-[4px] transition duration-300"
+          className="explore-more-button inline-block px-6 py-3 text-white bg-[rgba(0,15,102,1)] hover:bg-blue-600 hover:text-white rounded-[4px] transition duration-300"
           onClick={loadMoreCards}
           disabled={!hasMoreCards}
         >

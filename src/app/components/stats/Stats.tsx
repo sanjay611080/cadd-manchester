@@ -1,0 +1,84 @@
+import { useEffect, useState } from 'react';
+
+const StatsSection = () => {
+  // State to store the numbers for counting animation
+  const [delightedCount, setDelightedCount] = useState<number>(0);
+  const [coursesCount, setCoursesCount] = useState<number>(0);
+  const [practiceTestCount, setPracticeTestCount] = useState<number>(0);
+  const [placementPartnersCount, setPlacementPartnersCount] = useState<number>(0);
+  
+  // State to track if animation is already triggered
+  const [animationTriggered, setAnimationTriggered] = useState(false);
+
+  // Animation settings for counting
+  const countUp = (target: number, setter: React.Dispatch<React.SetStateAction<number>>) => {
+    let current = 0;
+    const increment = Math.ceil(target / 100);
+    const interval = setInterval(() => {
+      if (current < target) {
+        current += increment;
+        setter(current);
+      } else {
+        clearInterval(interval);
+        setter(target); // Ensure target value is set when done
+      }
+    }, 10);
+  };
+
+  useEffect(() => {
+    // Trigger the counting animation once the section is visible
+    const handleScroll = () => {
+      const element = document.getElementById('stats-section');
+      if (element && !animationTriggered) {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+          setAnimationTriggered(true); // Set flag to true to prevent further animations
+          countUp(2000, setDelightedCount);
+          countUp(25, setCoursesCount);
+          countUp(1000, setPracticeTestCount);
+          countUp(100, setPlacementPartnersCount);
+        }
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [animationTriggered]); // Add animationTriggered as dependency to ensure effect runs only once
+
+  return (
+    <section 
+      id="stats-section" 
+      className="relative bg-cover bg-center py-20 px-8 sm:px-16 lg:px-32" 
+      style={{ backgroundImage: 'url("home/stats.svg")' }}
+    >
+      <div className="container mx-auto text-center text-white">
+        <h2 className="text-4xl font-bold mb-4">Our Achievements</h2>
+        <p className="text-lg mb-8">We are proud of our track record in transforming education and empowering students.</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="flex flex-col items-center p-6 transform transition-all duration-500 hover:scale-105">
+            <div className="text-4xl font-bold">{delightedCount}+</div>
+            <div className="mt-2 text-xl">Delighted Students</div>
+          </div>
+
+          <div className="flex flex-col items-center p-6 transform transition-all duration-500 hover:scale-105">
+            <div className="text-4xl font-bold">{coursesCount}+</div>
+            <div className="mt-2 text-xl">Courses</div>
+          </div>
+
+          <div className="flex flex-col items-center p-6 transform transition-all duration-500 hover:scale-105">
+            <div className="text-4xl font-bold">{practiceTestCount}+</div>
+            <div className="mt-2 text-xl">Practice Tests</div>
+          </div>
+
+          <div className="flex flex-col items-center p-6 transform transition-all duration-500 hover:scale-105">
+            <div className="text-4xl font-bold">{placementPartnersCount}+</div>
+            <div className="mt-2 text-xl">Placement Partners</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default StatsSection;
