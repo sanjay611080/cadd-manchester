@@ -123,7 +123,7 @@ const StudentsCarousel = () => {
 
                 {/* Student Review */}
                 <p
-                  className={`ml-8 text-left ${window.innerWidth < 768 ? 'text-[8px] ml-2' : window.innerWidth < 1024 ? 'text-sm' : 'text-base'}`}
+                  className={`md:ml-8 text-left ${window.innerWidth < 768 ? 'text-[8px] ml-2' : window.innerWidth < 1024 ? 'text-sm' : 'text-base'}`}
                   style={{
                     marginBottom: '20px',
                     zIndex: 2, // Ensure the review text is above the background

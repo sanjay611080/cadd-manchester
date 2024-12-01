@@ -10,7 +10,7 @@ const HomePage = () => {
     <>
       {/* Background Image Section */}
       <section
-        className="relative mt-[70px] lg:mt-[135px] bg-cover bg-center w-full md:h-[calc(100vh-80px)] h-[30vh] xs:h-[40vh] sm:py-8"
+        className="relative mt-[70px] lg:mt-[135px] bg-cover bg-center w-full md:h-[calc(100vh-80px)] h-[40vh] xs:h-[40vh] sm:py-8"
         style={{
           backgroundImage: "url('/home/background1.svg')", // Ensure the path is correct
         }}
