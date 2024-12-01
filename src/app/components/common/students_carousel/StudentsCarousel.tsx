@@ -19,10 +19,10 @@ const StudentsCarousel = () => {
   const getVisibleCards = () => {
     if (typeof window !== 'undefined') {
       if (window.innerWidth >= 1024) return 5;  // 5 cards for large screens (desktops)
-      if (window.innerWidth >= 768) return 3;   // 3 cards for medium screens (tablets)
-      return 1;  // 1 card for small screens (phones)
+      if (window.innerWidth >= 768) return 3;   // 3 cards for medium screens (tablets, laptops)
+      return 3;  // 3 cards for smaller screens (phones)
     }
-    return 1; // Default to 1 if window is not available (for SSR)
+    return 3; // Default to 3 if window is not available (for SSR)
   };
 
   useEffect(() => {
@@ -77,7 +77,7 @@ const StudentsCarousel = () => {
                 marginLeft: isCenter ? '0px' : '', // Apply margin only to the zoomed-in card
                 marginRight: isCenter ? '0px' : '', // Apply margin only to the zoomed-in card
                 transformOrigin: 'center center', // Ensure zoom happens from the center
-                maxWidth: typeof window !== 'undefined' && window.innerWidth < 768 ? '50%' : '', // Limit the width of cards on mobile
+                maxWidth: window.innerWidth < 768 ? '50%' : '', // Limit the width of cards on mobile
               }}
             >
               <div
@@ -97,22 +97,16 @@ const StudentsCarousel = () => {
                 <img
                   src={student.avatar} // Local image path
                   alt={student.name}
-                  className={`rounded-full mb-4 ${
-                    typeof window !== 'undefined' && window.innerWidth < 768
-                      ? 'w-12 h-12'
-                      : typeof window !== 'undefined' && window.innerWidth < 1024
-                      ? 'w-16 h-16'
-                      : 'w-20 h-20'
-                  }`} // Adjust image size based on screen width
+                  className={`rounded-full mb-4 ${window.innerWidth < 768 ? 'w-12 h-12' : window.innerWidth < 1024 ? 'w-16 h-16' : 'w-20 h-20'}`} // Adjust image size based on screen width
                   style={{ zIndex: 2 }} // Ensure the profile image is above the background
                 />
                 
                 {/* Student Name */}
                 <h3
                   className={`font-semibold text-center ${
-                    typeof window !== 'undefined' && window.innerWidth < 768
+                    window.innerWidth < 768
                       ? 'text-xs'
-                      : typeof window !== 'undefined' && window.innerWidth < 1024
+                      : window.innerWidth < 1024
                       ? 'text-sm'
                       : 'text-lg'
                   }`}
@@ -128,9 +122,9 @@ const StudentsCarousel = () => {
                 {/* Student Review */}
                 <p
                   className={`ml-8 text-left ${
-                    typeof window !== 'undefined' && window.innerWidth < 768
-                      ? 'text-xs'
-                      : typeof window !== 'undefined' && window.innerWidth < 1024
+                    window.innerWidth < 768
+                      ? 'text-[8px] ml-2'
+                      : window.innerWidth < 1024
                       ? 'text-sm'
                       : 'text-base'
                   }`}

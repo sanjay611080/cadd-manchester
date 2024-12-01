@@ -61,7 +61,7 @@ const HomePage = () => {
       <div className="bg-[radial-gradient(73.44%_47%_at_50%_47.99%,_rgba(0,_140,_255,_0.14)_0%,_rgba(0,_140,_255,_0)_100%)]">
         <div className="mt-20 flex justify-center items-center px-4">
           {/* Card with Content */}
-          <div className="relative w-full max-w-6xl h-[350px] sm:h-[400px] md:h-[450px] bg-white shadow-[0px_0px_42px_1px_rgba(0,_140,_255,_0.12)] rounded-[20px] opacity-100">
+          <div className="relative w-full max-w-6xl h-[320px] sm:h-[300px] md:h-[350px] bg-white shadow-[0px_0px_42px_1px_rgba(0,_140,_255,_0.12)] rounded-[20px] opacity-100">
             {/* Text on top and centered */}
             <div className="flex flex-col mt-8 h-full px-6 sm:px-10 py-6 relative z-20">
               <div className="text-center sm:z-20 mt-10">
@@ -69,7 +69,7 @@ const HomePage = () => {
                   What are students saying!
                 </h2>
                 {/* Underline with space */}
-                <span className="block mt-2 w-32 sm:w-52 md:w-64 mx-auto border-t-4 border-blue-500"></span>
+                <span className="block mt-2 w-32 sm:w-52 md:w-32 mx-auto border-t-4 border-blue-500"></span>
               </div>
             </div>
 
