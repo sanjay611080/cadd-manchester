@@ -10,22 +10,21 @@ const HomePage = () => {
     <>
       {/* Background Image Section */}
       <section
-        className="relative mt-[70px] lg:mt-[135px]"
+        className="relative mt-[70px] lg:mt-[135px] bg-cover bg-center w-full md:h-[calc(100vh-80px)] h-[30vh] xs:h-[40vh] sm:py-8"
         style={{
           backgroundImage: "url('/home/background1.svg')", // Ensure the path is correct
-          backgroundSize: "cover", // Ensure the image covers the section area
-          backgroundPosition: "center", // Center the image
-          width: "100%", // Full width of the section
-          height: "calc(100vh - 80px)", // Full height minus the navbar height (80px)
         }}
       >
         {/* Text Overlay */}
-        <div className="absolute top-1/2 md:top-1.8/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center px-4 md:px-8  w-full max-w-5xl">
-          <h1 className="text-white font-inter font-bold text-3xl md:text-5xl lg:text-6xl">
+        <div
+          className="absolute top-1/2 md:top-[40%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center px-4 md:px-8 w-full max-w-5xl"
+        >
+          <h1 className="text-white font-inter font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
             Turn Your Dreams Into <br /> Reality With Quality Education.
           </h1>
         </div>
       </section>
+
 
       <div
         className={`transition-transform transition-opacity duration-1000 ease-in-out`}
@@ -45,7 +44,7 @@ const HomePage = () => {
           <Cards />
         </div>
       </div>
-      <StatsSection/>
+      <StatsSection />
 
       <div className="py-16 text-center px-4 bg-[rgba(246,246,246,0.8)]">
         <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
@@ -85,7 +84,7 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      {/* Students Carousel Section */}
+        {/* Students Carousel Section */}
       </div>
 
       {/* Students Carousel with Negative Margin to Shift it */}

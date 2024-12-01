@@ -4,10 +4,12 @@ import studentsData from '../../../../../public/assets/students_review.json'; //
 const StudentsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCards, setVisibleCards] = useState(1); // Default to 1 card for smaller screens
+  const [isClient, setIsClient] = useState(false); // State to check if the component is rendered on the client side
   const totalCards = studentsData.length;
 
   // Function to automatically move the carousel to the left
   useEffect(() => {
+    setIsClient(true); // Set isClient to true after the component mounts on the client side
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % totalCards); // Loop to the first card
     }, 3000); // Move every 3 seconds
@@ -26,23 +28,29 @@ const StudentsCarousel = () => {
   };
 
   useEffect(() => {
-    // Update visible cards when window is resized
-    const handleResize = () => {
+    if (isClient) { // Only run this on the client side
+      // Update visible cards when window is resized
+      const handleResize = () => {
+        setVisibleCards(getVisibleCards());
+      };
+
+      // Run once on mount to get initial visible cards
       setVisibleCards(getVisibleCards());
-    };
 
-    // Run once on mount to get initial visible cards
-    setVisibleCards(getVisibleCards());
+      // Add resize event listener
+      window.addEventListener('resize', handleResize);
 
-    // Add resize event listener
-    window.addEventListener('resize', handleResize);
-
-    // Cleanup on unmount
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+      // Cleanup on unmount
+      return () => window.removeEventListener('resize', handleResize);
+    }
+  }, [isClient]);
 
   const customBoxShadow = "-2px 2px 26px 4px rgba(0, 140, 255, 0.1)"; // Custom shadow style
   const backgroundImagePath = "/home/Testimonial_card.png"; // Relative path to the background image
+
+  if (!isClient) {
+    return null; // Prevent rendering before the component is mounted
+  }
 
   return (
     <div className="relative w-full mx-auto overflow-hidden pt-10 pb-28">
@@ -103,13 +111,7 @@ const StudentsCarousel = () => {
                 
                 {/* Student Name */}
                 <h3
-                  className={`font-semibold text-center ${
-                    window.innerWidth < 768
-                      ? 'text-xs'
-                      : window.innerWidth < 1024
-                      ? 'text-sm'
-                      : 'text-lg'
-                  }`}
+                  className={`font-semibold text-center ${window.innerWidth < 768 ? 'text-xs' : window.innerWidth < 1024 ? 'text-sm' : 'text-lg'}`}
                   style={{
                     marginBottom: '8px',
                     zIndex: 2, // Ensure the name is above the background
@@ -121,13 +123,7 @@ const StudentsCarousel = () => {
 
                 {/* Student Review */}
                 <p
-                  className={`ml-8 text-left ${
-                    window.innerWidth < 768
-                      ? 'text-[8px] ml-2'
-                      : window.innerWidth < 1024
-                      ? 'text-sm'
-                      : 'text-base'
-                  }`}
+                  className={`ml-8 text-left ${window.innerWidth < 768 ? 'text-[8px] ml-2' : window.innerWidth < 1024 ? 'text-sm' : 'text-base'}`}
                   style={{
                     marginBottom: '20px',
                     zIndex: 2, // Ensure the review text is above the background

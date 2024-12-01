@@ -28,7 +28,7 @@ const CourseCards: React.FC = () => {
             className="course-card w-full bg-white shadow-md rounded-lg text-center transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-xl"
           >
             {/* Course Logo */}
-            <div className="course-logo-container relative w-full h-16 sm:h-20 md:h-20 lg:h-28">
+            <div className="course-logo-container relative w-full h-20 sm:h-20 md:h-20 lg:h-24">
               <Image
                 src={course.logo}
                 alt={course.name}
@@ -39,13 +39,13 @@ const CourseCards: React.FC = () => {
             </div>
 
             {/* Course Name */}
-            <div className="course-name-container mt-2 sm:mt-3">
+            <div className="course-name-container ">
               <h3 className="text-xs sm:text-sm md:text-lg font-semibold text-gray-800">{course.name}</h3>
             </div>
 
             {/* Learn More Button */}
             <div className="learn-more-button-container p-1 sm:p-2 md:p-3">
-              <button className="relative top-4 text-white bg-[rgba(0,15,102,1)] hover:bg-blue-700 py-2 sm:py-1.5 md:py-2 px-4 sm:px-5 md:px-4 rounded-md transition duration-300 text-[10px] lg:text-[14px] lg:top-8">
+              <button className="relative top-4 text-white bg-[rgba(0,15,102,1)] hover:bg-blue-700 py-2 sm:py-1.5 md:py-2 px-4 sm:px-5 md:px-4 rounded-md transition duration-300 text-[10px] lg:text-[10px] lg:top-8">
                 Learn More
               </button>
             </div>
