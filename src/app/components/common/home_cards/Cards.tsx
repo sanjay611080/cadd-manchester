@@ -19,8 +19,8 @@ const Cards: React.FC = () => {
   };
 
   return (
-    <>
-      <div className="cards-container flex flex-col items-center w-full max-w-[1241px] px-8  mx-auto">
+    <> 
+      <div className="cards-container flex flex-col items-center w-full max-w-[1241px] md:px-8  mx-auto">
         <div className="cards-grid flex flex-col md:grid md:grid-cols-2 lg:grid-cols-4 gap-[15px] w-full">
           {cards.map((card, index) => (
             <div

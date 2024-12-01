@@ -9,7 +9,7 @@ const Footer = () => {
                 <div className="flex flex-wrap justify-between mb-12">
                     {/* About Section with SVG Logo */}
                     <div className="w-full md:w-1/3 mb-6 md:mb-0 md:pr-6 flex flex-col items-start">
-                        <img src="/logo-mobile.svg" alt="FitExis Logo" className="h-12 w-auto mb-4" />
+                        <img src="/logo-mobile.svg" alt="CADDManchester Logo" className="h-12 w-auto mb-4" />
                         <p className="text-black-600 text-sm">
                             CADD Manchester Academy – Empowering careers with 3+ years of experience in skill development. Offering offline and online training across India.
                         </p>
@@ -75,7 +75,7 @@ const Footer = () => {
 
                 <div className="flex justify-start relative bottom-[50px] md:bottom-[120px]">
                     <p className="text-black-600 text-sm">
-                        &copy; {new Date().getFullYear()} FitExis. All rights reserved.
+                        &copy; {new Date().getFullYear()} CADDManchester. All rights reserved.
                     </p>
                 </div>
             </div>

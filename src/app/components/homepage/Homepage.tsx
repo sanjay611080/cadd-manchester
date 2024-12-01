@@ -31,7 +31,7 @@ const HomePage = () => {
         className={`transition-transform transition-opacity duration-1000 ease-in-out`}
       >
         <div
-          className="py-16 text-center px-4 p"
+          className="py-16 text-center px-4"
           style={{
             background: 'linear-gradient(109.7deg, rgba(121, 176, 223, 0.18) -0.75%, rgba(91, 18, 133, 0.08) 123.88%)',
           }}
