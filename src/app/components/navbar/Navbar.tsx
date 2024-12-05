@@ -147,22 +147,22 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href="/course" className="block py-2 px-4 " onClick={closeMobileMenu}>
+              <Link href="/Courses" className="block py-2 px-4 " onClick={closeMobileMenu}>
                 Course
               </Link>
             </li>
             <li>
-              <Link href="/exam" className="block py-2 px-4 " onClick={closeMobileMenu}>
+              <Link href="/Exams" className="block py-2 px-4 " onClick={closeMobileMenu}>
                 Exam
               </Link>
             </li>
             <li>
-              <Link href="/blog" className="block py-2 px-4 " onClick={closeMobileMenu}>
+              <Link href="/Blog" className="block py-2 px-4 " onClick={closeMobileMenu}>
                 Blog
               </Link>
             </li>
             <li>
-              <Link href="/about-us" className="block py-2 px-4 " onClick={closeMobileMenu}>
+              <Link href="/About" className="block py-2 px-4 " onClick={closeMobileMenu}>
                 About Us
               </Link>
             </li>

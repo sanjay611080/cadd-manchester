@@ -1,38 +1,57 @@
 const Page = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-400 via-blue-500 to-purple-600">
-      <div className="bg-white p-10 rounded-xl shadow-2xl max-w-lg w-full text-center">
-        {/* Header */}
-        <h1 className="text-4xl font-extrabold text-gray-800 mb-4">
-          🚧 This Page is Under Development 🚧
-        </h1>
-        
-        {/* Message */}
-        <p className="text-lg text-gray-700 mb-6">
-          We&apos;re working hard to bring you an amazing experience. This page will be ready very soon!
-        </p>
+    <>
+      {/* Background Image Section */}
+      <section
+        className="relative mt-[70px] lg:mt-[135px] bg-cover bg-center w-full md:h-[calc(100vh-80px)] h-[40vh] xs:h-[40vh] sm:py-8"
+        style={{
+          backgroundImage: "url('/about/image.jpg')", // Ensure the path is correct
+        }}
+      >
+         {/* Dark Overlay */}
+         <div className="absolute top-0 left-0 w-full h-full md:bg-black opacity-40"></div>
+      </section>
 
-        {/* Progress bar */}
-        <div className="relative pt-1 mb-6">
-          <div className="flex mb-2 items-center justify-between">
-            <span className="text-xs font-semibold inline-block py-1 px-2 uppercase">Development Progress</span>
+      {/* Background Section with Padding and Color Removed */}
+      <section
+        className="relative mt-0 lg:mt-[70px] w-full sm:py-8 pt-0" // Removed background color and adjusted margin-top
+      >
+        {/* Layout for Larger Screens */}
+        <div className="flex flex-col lg:flex-row justify-center px-4 mt-0 mb-16"> {/* Removed extra margin-top */}
+          {/* Map Section (Left Side on Large Devices) */}
+          <div className="lg:w-[35%] md:w-full md:h-[400px] mt-6 lg:mb-0 lg:mr-8 lg:ml-8 mx-4 mb-6">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.971382368237!2d77.27502737407531!3d28.63061978417011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3bd6098fa13%3A0x5f111c4431472261!2sCADD%20Manchester%20Academy!5e0!3m2!1sen!2sin!4v1733154633771!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              className="rounded-lg shadow-lg"
+            ></iframe>
           </div>
-          <div className="flex mb-2">
-            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-              <div
-                className="bg-blue-600 h-2.5 rounded-full transition-all duration-1000"
-                style={{ width: '50%' }}
-              />
+
+          {/* About Section (Right Side on Large Devices) */}
+          <div className="lg:w-[60%] w-full px-4 text-black mb-8"> {/* Changed text color to black */}
+            <h2 className="text-2xl font-bold mb-4">About CADD Manchester</h2>
+            <hr className="border-t-2 border-gray-300 mb-4" />
+            <p className="text-sm mb-8">
+              In the past few years, the best digital marketing in Laxmi Nagar, Delhi has become a popular career choice. It’s an excellent choice for those wanting a stable and reliable income.<br/><br/>
+              Unlike regular jobs, CADD Manchester’s Digital Marketing course gives you many advantages. You can work from home, on your own time, or get a good-paying job with a well-known company.<br/><br/>
+
+              The digital marketing courses in Laxmi Nagar have greatly affected the market and opened up many new opportunities. Whether you’re looking for a job or you’re a business owner, learning Internet marketing can help. Today, because so many things are done online, businesses need to ensure they have a strong presence on the internet. That’s why they hire digital marketing experts to help them get noticed online and succeed.
+            </p>
+
+            {/* Join Us Button */}
+            <div className="">
+              <a href="/join-us" className="inline-block px-4 py-2 bg-[#222B57] text-white text-xl rounded-sm hover:text-black transition">
+                Join Us
+              </a>
             </div>
           </div>
         </div>
-
-        {/* Footer message */}
-        <p className="text-sm text-gray-500 mt-4">
-          Thank you for your patience. Stay tuned for updates!
-        </p>
-      </div>
-    </div>
+      </section>
+    </>
   );
 };
 

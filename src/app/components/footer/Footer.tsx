@@ -19,20 +19,20 @@ const Footer = () => {
                     <div className="w-full md:w-1/3 mb-6 md:mb-0 md:px-20 text-left">
                         <h5 className="text-xl font-semibold mb-4">Company</h5>
                         <ul className="space-y-2">
-                            <li>
-                                <Link href="/pages/About" className="text-black-600 relative group">
+                        <li>
+                                <Link href="/About" className="text-black-600 relative group">
                                     About Us
                                     <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/pages/Services" className="text-black-600 relative group">
+                                <Link href="/Contact" className="text-black-600 relative group">
                                     Contact Us
                                     <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/pages/Plans" className="text-black-600 relative group">
+                                <Link href="/Blog" className="text-black-600 relative group">
                                     Blog
                                     <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
                                 </Link>
